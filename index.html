@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery demo</title>
+    <style>
+        .box {
+            min-height: 20vh;
+        }
+
+        p {
+
+            padding: 3rem 0;
+            background-color: antiquewhite;
+        }
+
+        .green {
+            /* background-color: #98bf21; */
+            color: #98bf21;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+
+        <button class="hs">Toggle hide show </button>
+
+        <p class="hs">This is a paragraph with little content.</p>
+
+    </div>
+    <div class="box">
+
+        <button class="fa">Toggle fade </button>
+
+        <p class="fa">This is a paragraph with little content.</p>
+
+    </div>
+
+    <div class="box">
+
+        <button class="sl">Toggle slide </button>
+
+        <p class="sl">This is a paragraph with little content.</p>
+
+    </div>
+
+    <div class="box">
+
+        <button class="an">Start Animation</button>
+
+        <div class="an" style="background:#98bf21;height:100px;width:100px;position:absolute;"></div>
+
+    </div>
+    <div class="box">
+
+        <p id="p1">jQuery is fun!!</p>
+
+        <button class="ch">Click me</button>
+
+    </div>
+
+    <div class="box">
+
+        <p class="get"><a href="vinhhoang@gmail.com" id="w3get">get attr</a></p>
+
+        <button class="get">Show href Value</button>
+
+    </div>
+
+    <div class="box">
+        <p class="set"><a href="https://www.w3schools.com" target="blank" id="w3set">W3Schools.com</a></p>
+
+        <button class="set">Change color</button>
+    </div>
+
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        //effect
+        $(document).ready(function () {
+
+            $("button.hs").click(function () {
+                $("p.hs").toggle(1000);
+            });
+
+            $("button.fa").click(function () {
+                $("p.fa").fadeToggle(1000);
+            });
+
+            $("button.sl").click(function () {
+                $("p.sl").slideToggle(1000);
+            });
+
+            $("button.an").click(function () {
+                var div = $("div.an");
+                div.animate({ height: '300px', opacity: '0.4' }, "slow");
+                div.animate({ width: '300px', opacity: '0.8' }, "slow");
+                div.animate({ height: '100px', opacity: '0.4' }, "slow");
+                div.animate({ width: '100px', opacity: '0.8' }, "slow");
+
+            });
+
+            $("button.ch").click(function () {
+                $("#p1").css("color", "red").slideUp(2000).slideDown(2000);
+            });
+
+            $("button.get").click(function () {
+                alert($("#w3get").attr("href"));
+            });
+
+            $("button.set").click(function () {
+                $("#w3set").text("google.com");
+                $("#w3set").attr("href", "https://www.google.com/");
+
+                $("#w3set").toggleClass("green");
+            });
+
+        });
+
+    </script>
+</body>
+
+</html>
